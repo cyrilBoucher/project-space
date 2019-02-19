@@ -1,0 +1,18 @@
+os: linux
+dist: xenial
+sudo: true
+compiler: gcc
+
+addons:
+  apt:
+    update: true
+    packages:
+      - libglm-dev
+      - libglew-dev
+      - freeglut3-dev
+
+script:
+  - mkdir -p build
+  - cd build
+  - cmake -DCMAKE_BUILD_TYPE=Release ..
+  - make

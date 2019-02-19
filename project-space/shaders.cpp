@@ -1,7 +1,8 @@
 
 #include <iostream>
 #include <fstream>
-#include <string.h>
+#include <string>
+#include <cstring>
 #include <GL/glew.h>
 
 

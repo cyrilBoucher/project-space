@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.5)
 
 project(project-space
 	LANGUAGES CXX
@@ -12,7 +12,16 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
-find_package(glm REQUIRED)
+
+# From Ubuntu 18.04, a config file is provided
+# by glm
+find_package(glm CONFIG)
+
+# If we run 16.04 however, use the provided Findglm.cmake
+if (NOT glm_DIR)
+	set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+	find_package(glm REQUIRED)
+endif()
 
 include(GenerateExportHeader)
 
@@ -80,8 +89,8 @@ target_link_libraries(project-space PUBLIC
 	${GLEW_LIBRARIES}
 )
 
-set(_buildIncludeDir ${CMAKE_CURRENT_BINARY_DIR} 
-	${CMAKE_CURRENT_SOURCE_DIR} 
+set(_buildIncludeDir ${CMAKE_CURRENT_BINARY_DIR}
+	${CMAKE_CURRENT_SOURCE_DIR}
 	${OPENGL_INCLUDE_DIR}
 	${GLEW_INCLUDE_DIRS}
 	${GLM_INCLUDE_DIR})
@@ -91,5 +100,5 @@ target_include_directories(project-space PUBLIC
 
 generate_export_header(project-space
 	EXPORT_FILE_NAME ${PROJECT_BINARY_DIR}/project-space/project-space-export.h)
-	
+
 add_subdirectory(applications)

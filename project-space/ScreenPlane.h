@@ -1,5 +1,5 @@
 #pragma once
-#include "plane.h"
+#include "Plane.h"
 
 namespace ps
 {

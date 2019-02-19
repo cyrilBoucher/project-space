@@ -1,5 +1,5 @@
 #pragma once
-#include "compositeobject.h"
+#include "CompositeObject.h"
 
 namespace ps
 {

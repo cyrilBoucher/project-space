@@ -25,7 +25,7 @@ namespace ps
 		glm::mat3 & getNormalMatrix(void);
 
 		void getLookAt(Point3& eye, Point3& center, Vec3& up);
-		void setLookAt(Point3& eye, Point3& center, Vec3& up);
+		void setLookAt(const Point3& eye, const Point3& center, const Vec3& up);
 
 		void getFrustum(float& left, float& right, float& bottom, float& top, float& znear, float& zfar);
 		void setFrustum(float& left, float& right, float& bottom, float& top, float& znear, float& zfar);

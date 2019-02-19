@@ -10,11 +10,9 @@ set(CMAKE_DEBUG_POSTFIX "d")
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
-find_package(GLM REQUIRED)
+find_package(glm REQUIRED)
 
 include(GenerateExportHeader)
 

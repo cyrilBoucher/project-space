@@ -34,7 +34,7 @@ ps::Vec3 ps::Vec3::operator^(const ps::Vec3 & v1) const
 	return crossproduct(v1);
 }
 
-ps::Vec3 ps::Vec3::operator+(ps::Vec3 & v1)
+ps::Vec3 ps::Vec3::operator+(const ps::Vec3 & v1)
 {
 	return ps::Vec3(m_Dx+v1.m_Dx, m_Dy+v1.m_Dy, m_Dz+v1.m_Dz);
 }

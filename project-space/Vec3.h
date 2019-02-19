@@ -22,7 +22,7 @@ namespace ps
 
 		double operator*(const Vec3 & v1) const;
 		Vec3 operator^(const Vec3 & v1) const;
-		Vec3 operator+(Vec3 & v1);
+		Vec3 operator+(const Vec3 & v1);
 		Vec3 operator-() const;
 		Vec3 operator*(double s);
 		void crossproduct(const Vec3 & v1, const Vec3 & v2);

@@ -20,7 +20,7 @@ const GLuint & ps::Program::getId(void)
 }
 
 // Methods
-void ps::Program::setUniform(const std::string& name, ps::Material& material)
+void ps::Program::setUniform(const std::string& name, const ps::Material& material)
 {
 	Color kd, ka, ks;
 	float ns;
@@ -36,7 +36,7 @@ void ps::Program::setUniform(const std::string& name, ps::Material& material)
 	setUniform(name + ".ns", ns);
 }
 
-void ps::Program::setUniform(const std::string& name, Light& light)
+void ps::Program::setUniform(const std::string& name, const Light& light)
 {
 	Point3 position;
 	Color color;
@@ -54,42 +54,42 @@ void ps::Program::setUniform(const std::string& name, Light& light)
 	setUniform(name + ".type", type);*/
 }
 
-void ps::Program::setUniform(GLuint location, int & value)
+void ps::Program::setUniform(GLuint location, int value)
 {
 	glUniform1i(location, value);
 }
 
-void ps::Program::setUniform(GLuint location, float & value)
+void ps::Program::setUniform(GLuint location, float value)
 {
 	glUniform1f(location, value);
 }
 
-void ps::Program::setUniform(GLuint location, glm::mat4& matrix4)
+void ps::Program::setUniform(GLuint location, const glm::mat4& matrix4)
 {
 	glUniformMatrix4fv(location, 1, GL_FALSE, &matrix4[0][0]);
 }
 
-void ps::Program::setUniform(GLuint location, glm::mat3& matrix3)
+void ps::Program::setUniform(GLuint location, const glm::mat3& matrix3)
 {
 	glUniformMatrix3fv(location, 1, GL_FALSE, &matrix3[0][0]);
 }
 
-void ps::Program::setUniform(GLuint location, ps::Vec3& vector3)
+void ps::Program::setUniform(GLuint location, const ps::Vec3& vector3)
 {
 	glUniform3d(location, vector3.getDx(), vector3.getDy(), vector3.getDz());
 }
 
-void ps::Program::setUniform(GLuint location, glm::vec4& vector4)
+void ps::Program::setUniform(GLuint location, const glm::vec4& vector4)
 {
 	glUniform4d(location, vector4.x, vector4.y, vector4.z, vector4.w);
 }
 
-void ps::Program::setUniform(GLuint location, ps::Point3& point3)
+void ps::Program::setUniform(GLuint location, const ps::Point3& point3)
 {
 	glUniform3d(location, point3.getX(), point3.getY(), point3.getZ());
 }
 
-void ps::Program::setUniform(GLuint location, ps::Color& color)
+void ps::Program::setUniform(GLuint location, const ps::Color& color)
 {
 	glUniform4f(location, color.getR(), color.getG(), color.getB(), color.getA());
 }

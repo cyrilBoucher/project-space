@@ -1,5 +1,5 @@
 #pragma once
-#include "singleobject.h"
+#include "SingleObject.h"
 
 namespace ps
 {

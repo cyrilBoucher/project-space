@@ -1,5 +1,7 @@
 
 #include "TextureCubeMap.h"
+#include <string.h>
+#include <string>
 
 ps::TextureCubeMap::TextureCubeMap(void)
 {

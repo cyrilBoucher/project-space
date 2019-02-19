@@ -228,7 +228,7 @@ int main(int argc, char* argv[]) {
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA | GLUT_DEPTH | GLUT_MULTISAMPLE);
 	glutCreateWindow("My OpenGL Application");
 
-	glewExperimental=TRUE;
+	glewExperimental = GL_TRUE;
 	   
 	glewInit() ; 
 	glutReshapeWindow(Glut_w, Glut_h);

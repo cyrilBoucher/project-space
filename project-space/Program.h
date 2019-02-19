@@ -22,17 +22,17 @@ namespace ps
 		const GLuint & getId(void);
 
 		template<typename T>
-		void setUniform(const std::string& name, T&& value);
-		void setUniform(const std::string& name, Material& material);
-		void setUniform(const std::string& name, Light& light);
-		void setUniform(GLuint location, int & value);
-		void setUniform(GLuint location, float & value);
-		void setUniform(GLuint location, glm::mat4& matrix4);
-		void setUniform(GLuint location, glm::mat3& matrix3);
-		void setUniform(GLuint location, Vec3& vector3);
-		void setUniform(GLuint location, glm::vec4& vector4);
-		void setUniform(GLuint location, Point3& point3);
-		void setUniform(GLuint location, Color& color);
+		void setUniform(const std::string& name, const T& value);
+		void setUniform(const std::string& name, const Material& material);
+		void setUniform(const std::string& name, const Light& light);
+		void setUniform(GLuint location, int value);
+		void setUniform(GLuint location, float value);
+		void setUniform(GLuint location, const glm::mat4& matrix4);
+		void setUniform(GLuint location, const glm::mat3& matrix3);
+		void setUniform(GLuint location, const Vec3& vector3);
+		void setUniform(GLuint location, const glm::vec4& vector4);
+		void setUniform(GLuint location, const Point3& point3);
+		void setUniform(GLuint location, const Color& color);
 
 		void init(GLuint vertex_shader, GLuint fragment_shader);
 		void use();
@@ -46,7 +46,7 @@ namespace ps
 	};
 
 	template<typename T>
-	inline void ps::Program::setUniform(const std::string& name, T&& value)
+	inline void ps::Program::setUniform(const std::string& name, const T& value)
 	{
 		GLuint location = -1;
 
@@ -59,17 +59,11 @@ namespace ps
 			location = m_Uniforms[name];
 		}
 
-		/*if(location == -1)
-		{
-			std::string error = "Program could not get location of uniform " + name;
-			throw std::runtime_error(error);
-		}*/
-
 		if(location != -1)
 		{
 			m_Uniforms[name] = location;
 
-			setUniform(location, std::forward<T>(value));
+			setUniform(location, value);
 		}
 	}
 }

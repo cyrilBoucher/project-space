@@ -20,8 +20,8 @@ namespace ps
 		void setZ(const double & z);
 
 		double dist(const Point3 & p1);
-		Point3 operator+(Vec3 & v1);
-		Point3 & operator+=(Vec3 & v1);
+		Point3 operator+(const Vec3 & v1);
+		Point3 & operator+=(const Vec3 & v1);
 		Vec3 operator-(const Point3 & right) const;
 		void rotate(Vec3 & lp, double theta);
 		void print(char *s);

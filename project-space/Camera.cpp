@@ -61,7 +61,7 @@ void ps::Camera::getLookAt(ps::Point3& eye, ps::Point3& center, ps::Vec3& up)
 	up = m_Up;
 }
 
-void ps::Camera::setLookAt(ps::Point3& eye, ps::Point3& center, ps::Vec3& up)
+void ps::Camera::setLookAt(const ps::Point3& eye, const ps::Point3& center, const ps::Vec3& up)
 {
 	m_Eye = eye;
 	m_Center = center;

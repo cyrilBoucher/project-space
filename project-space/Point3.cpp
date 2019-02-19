@@ -25,12 +25,12 @@ ps::Point3::~Point3(void)
 }
 
 //Operators
-ps::Point3 ps::Point3::operator+(ps::Vec3 & v1)
+ps::Point3 ps::Point3::operator+(const ps::Vec3 & v1)
 {
 	return ps::Point3(m_X+v1.getDx(), m_Y+v1.getDy(), m_Z+v1.getDz());
 }
 
-ps::Point3 & ps::Point3::operator+=(ps::Vec3 & v1)
+ps::Point3 & ps::Point3::operator+=(const ps::Vec3 & v1)
 {
 	m_X += v1.getDx();
 	m_Y += v1.getDy();

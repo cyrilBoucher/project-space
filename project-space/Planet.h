@@ -1,5 +1,5 @@
 #pragma once
-#include "sphere.h"
+#include "Sphere.h"
 
 namespace ps
 {

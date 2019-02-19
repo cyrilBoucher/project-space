@@ -1,7 +1,7 @@
 #pragma once
 
 #include "project-space/project-space-export.h"
-#include "cube.h"
+#include "Cube.h"
 
 #include "TextureCubeMap.h"
 

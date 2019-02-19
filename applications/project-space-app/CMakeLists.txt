@@ -4,8 +4,7 @@ add_executable(project-space-app main.cpp)
 
 target_link_libraries(project-space-app PUBLIC
 	project-space
-	optimized ${GLUT_glut_LIBRARY}
-	debug ${GLUT_glut_LIBRARY_DEBUG}
+	GLUT::GLUT
 )
 
 target_include_directories(project-space-app PUBLIC

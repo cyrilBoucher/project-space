@@ -1,19 +1,25 @@
-os: linux
-dist: xenial
-sudo: true
 language: cpp
-compiler: gcc
 
-addons:
-  apt:
-    update: true
-    packages:
-      - libglm-dev
-      - libglew-dev
-      - freeglut3-dev
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+      compiler: gcc
 
-script:
-  - mkdir -p build
-  - cd build
-  - cmake -DCMAKE_BUILD_TYPE=Release ..
-  - make
+      before_install:
+        - sudo apt-get update
+        - sudo apt-get install -y libglm-dev libglew-dev freeglut3-dev
+
+      script:
+        - mkdir -p build
+        - cd build
+        - cmake -DCMAKE_BUILD_TYPE=Release ..
+        - make
+    - os: windows
+      install:
+        - ./.travis/windows-install-externals.sh
+      script:
+        - mkdir -p build
+        - cd build
+        - cmake -DCMAKE_PREFIX_PATH=$TRAVIS_BUILD_DIR/externals-install -G "Visual Studio 15 2017 Win64" ..
+        - cmake --build . --config Release
